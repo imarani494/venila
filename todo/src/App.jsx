@@ -2,6 +2,7 @@ import React from "react";
 import Todo from "./components/todo";
 
 import './App.css'
+import User from "./components/user";
 
 function App() {
 
@@ -10,7 +11,7 @@ function App() {
 
    <div>
    
-   <Todo/>
+  <User/>
    </div>
   );
 }

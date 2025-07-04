@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React vs Vanilla DOM</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      let vanillaCount = 0;
+
+      function App() {
+        const [reactTitle, setReactTitle] = React.useState("Hello from React 0");
+        const [reactCount, setReactCount] = React.useState(0);
+
+        const [vanillaTitle, setVanillaTitle] = React.useState("Hello from Vanilla 0");
+        const [vanillaUpdateCount, setVanillaUpdateCount] = React.useState(0);
+
+        const handleReact = () => {
+          const newCount = reactCount + 1;
+          setReactTitle(`Hello from React ${newCount}`);
+          setReactCount(newCount);
+        };
+
+        const handleVanilla = () => {
+          vanillaCount++;
+          const newText = `Hello from Vanilla ${vanillaCount}`;
+          const el = document.getElementById("vanilla-title");
+          if (el) {
+            el.textContent = newText;
+          }
+          setVanillaTitle(newText);
+          setVanillaUpdateCount(vanillaCount);
+        };
+
+        return (
+          <div>
+            <h2 id="react-title">{reactTitle}</h2>
+            <h2 id="vanilla-title">{vanillaTitle}</h2>
+
+            <button onClick={handleVanilla}>Change Title (Vanilla JS)</button>
+            <button onClick={handleReact}>Change Title (React)</button>
+
+            <p>React DOM Updates: {reactCount}</p>
+            <p>Vanilla DOM Updates: {vanillaUpdateCount}</p>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>

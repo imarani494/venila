@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>React List</title>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script>
+    const { createElement } = React;
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+
+    function App() {
+      return createElement(
+        "div",
+        null,
+        createElement("h1", null, "My favorite topics"),
+        createElement(
+          "ul",
+          null,
+          createElement("li", null, "React"),
+          createElement("li", null, "JavaScript"),
+          createElement("li", null, "CSS")
+        )
+      );
+    }
+
+    root.render(createElement(App));
+  </script>
+</body>
+</html>

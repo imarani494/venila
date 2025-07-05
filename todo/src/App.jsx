@@ -1,4 +1,5 @@
 import Control from "./components/Control";
+import Dynfrom from "./components/Dynfrom";
 import Unform from "./components/unForm";
 
 
@@ -6,7 +7,7 @@ import Unform from "./components/unForm";
 function App() {
   return (
     <div>
-<Unform/>
+<Dynfrom/>
     </div>
   );
 }
